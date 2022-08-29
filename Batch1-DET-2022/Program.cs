@@ -43,6 +43,8 @@ class MyClass
         //}
         //catch (Exception e)
         //{ }
+
+
         //CompanyManager m3 = new CompanyManager { Name = "Balaji", Surname = "R", Phone = "9876546743" };
         //Company company = new Company { Name = "SSL", Address = "Global City", Manager = m3, Phone = "67895436", Website = "Sonata-software.com" };
         //Console.WriteLine(company.print());
@@ -61,17 +63,51 @@ class MyClass
         //}
         //catch (Exception a)
         ////{ }
+        ///
+
         //List<Animal> animal = new List<Animal>();
         //animal.Add(new Dog());
         //animal.Add(new Cat());
 
         //foreach (Animal a in animal)
         //    Console.WriteLine(a.ToString());
-        ScienceStudent Student = new ScienceStudent { regno = 12, Name = "vinay" };
-        ScienceStudent sciencesubject = new ScienceStudent { physics = 54, chemistry = 75, maths = 45 };
-        CommerceStudent Commercessubject = new CommerceStudent { economices = 44, accounts = 82, banking = 44 };
 
-        Console.WriteLine(sciencesubject.GetAvgMarks());
-        Console.WriteLine(Commercessubject.GetAvgMarks());
+
+        //ScienceStudent Student = new ScienceStudent { regno = 12, Name = "vinay" };
+        //ScienceStudent sciencesubject = new ScienceStudent { physics = 54, chemistry = 75, maths = 45 };
+        //CommerceStudent Commercessubject = new CommerceStudent { economices = 44, accounts = 82, banking = 44 };
+
+        //Console.WriteLine(sciencesubject.GetAvgMarks());
+        //Console.WriteLine(Commercessubject.GetAvgMarks());
+
+        try
+        {
+            Person t = new Person("Tony", "Stark", "tonystark@stark.com", new DateOnly(1988, 05, 04));
+            int byear = t.BirthYear();
+            if (byear < 1900 || byear > 2022)
+            {
+                throw new InvalidEmpIdException("ENTER VALID BIRTH YEAR");
+            }
+            string r = t.GetSunSign();
+            string s = t.ChineseZodiac();
+            string w = t.IsAdult();
+            string b = t.BDayStatus();
+            string u = t.DefaultUsername();
+            string n = t.GetInfo();
+            Console.WriteLine($"NAME = {n}");
+            Console.WriteLine($"Sun Sign = {r}");
+            Console.WriteLine($"Chinese Zodiac = {s}");
+            Console.WriteLine($"Age Status = {w}");
+            Console.WriteLine($"Birthday Status = {b}");
+            Console.WriteLine($"Default Username = {u}");
+        }
+        catch (InvalidEmpIdException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        catch (Exception m)
+        {
+            Console.WriteLine(m.Message);
+        }
     }
 }
